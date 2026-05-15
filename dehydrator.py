@@ -460,8 +460,11 @@ class Dehydrator:
                 cleaned = cleaned.split("\n", 1)[-1].rsplit("```", 1)[0]
             result = json.loads(cleaned)
         except (json.JSONDecodeError, IndexError, ValueError):
-            logger.warning(f"API tagging JSON parse failed / JSON 解析失败: {raw[:200]}")
-            return self._default_analysis()
+    logger.warning(
+        f"Diary digest JSON parse failed / JSON 解析失败 "
+        f"(raw length: {len(raw)}, preview: {raw[:200]!r})"
+    )
+    return []
 
         if not isinstance(result, dict):
             return self._default_analysis()
