@@ -167,7 +167,7 @@ class Dehydrator:
         self.api_key = dehy_cfg.get("api_key", "")
         self.model = dehy_cfg.get("model", "deepseek-chat")
         self.base_url = dehy_cfg.get("base_url", "https://api.deepseek.com/v1")
-        self.max_tokens = dehy_cfg.get("max_tokens", 1024)
+        self.max_tokens = dehy_cfg.get("max_tokens", 4096)
         self.temperature = dehy_cfg.get("temperature", 0.1)
 
         # --- API availability / 是否有可用的 API ---
