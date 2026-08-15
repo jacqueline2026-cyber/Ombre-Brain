@@ -244,6 +244,7 @@ class APIEmbeddingEngine(BaseEmbeddingEngine):
             response = await self._client.embeddings.create(
                 model=self.model,
                 input=text[:_MAX_INPUT_CHARS],
+                encoding_format="float",
             )
             if response.data and len(response.data) > 0:
                 vec = response.data[0].embedding
